@@ -98,50 +98,14 @@ if __name__ == '__main__':
             if len(fours) == 1:
                 return fours[0]
                 
+            if len(fours) == 0:
+                return [random.randint(0, 4),random.randint(0, 4)]
             
             if len(fours) > 1:
                 return fours[1]
-                
-            threes = []
-            if len(fours) == 0:
-                
-                for y, row in enumerate(data['board']):
-                    for x, item in enumerate(row):
-                        if item['points'] == 3:
-                            print(x,y)
-                            threes.append([x,y])
-                
-                if len(threes) == 1:
-                    return threes[0]    
-                
-                if len(threes)>1:
-                        
-                    for element in threes[:]:
-                        x = element[0]
-                        y = element[1]
-                        if x == 0 and data['board'][y][x]['direction'] == 'left':
-                            threes.remove(element)
-                        if x == 4 and data['board'][y][x]['direction'] == 'right':
-                            threes.remove(element)
-                        if y == 0 and data['board'][y][x]['direction'] == 'up':
-                            threes.remove(element)
-                        if y == 4 and data['board'][y][x]['direction'] == 'down':
-                            threes.remove(element)
-                            
-                if len(threes) == 1:
-                    return threes[0]
-                    
-                if len(threes) > 1:
-                    return threes[1]
-                    
-                if len(threes) == 0:
-                    return [random.randint(0, 4),random.randint(0, 4)]
             
         point = alg()
         print(point)
-        print('points: ')
-        print(data['score'])
-        
         
         time.sleep(random.random() * 3 + 1)
         

@@ -1,0 +1,5 @@
+def pal(word):
+    for a in len(word)/2
+        if word[a] != word[-a]:
+            return False
+    return True
